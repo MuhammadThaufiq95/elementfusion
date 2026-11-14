@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Element Fusion</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <header class="topbar">
+            <h1 class="logo">ELEMENT<span>FUSION</span></h1>
+            <button id="btn-mute" class="btn btn-small">SUARA: ON</button>
+        </header>
+
+        <main class="layout">
+            <div class="board-wrap">
+                <canvas id="board"></canvas>
+
+                <div id="toast" class="toast">
+                    <div class="toast-title" id="toast-title"></div>
+                    <div class="toast-sub" id="toast-sub"></div>
+                </div>
+
+                <section id="screen-menu" class="screen active">
+                    <h2 class="screen-title">ELEMENT<br />FUSION</h2>
+                    <p class="screen-sub">Susun, satukan, dan ciptakan seluruh tabel periodik.</p>
+                    <ul class="howto">
+                        <li>← → / A D : geser unsur</li>
+                        <li>↓ / S : jatuh cepat</li>
+                        <li>SPASI : jatuhkan langsung</li>
+                        <li>P : jeda</li>
+                        <li>Sentuh: geser = pindah, swipe ke bawah = jatuhkan</li>
+                    </ul>
+                    <p class="howto-note">Unsur bersebelahan dengan selisih nomor atom ≤ 1 akan berfusi. Capai Fe (26)
+                        untuk supernova!</p>
+                    <button id="btn-start" class="btn">MULAI</button>
+                </section>
+
+                <section id="screen-pause" class="screen">
+                    <h2 class="screen-title small">JEDA</h2>
+                    <button id="btn-resume" class="btn">LANJUT</button>
+                </section>
+
+                <section id="screen-gameover" class="screen">
+                    <h2 class="screen-title small">REAKTOR PENUH</h2>
+                    <div class="go-row"><span>Skor</span><strong id="go-score">0</strong></div>
+                    <div class="go-row"><span>Terbaik</span><strong id="go-best">0</strong></div>
+                    <div class="go-row"><span>Unsur tertinggi</span><strong id="go-highest">H</strong></div>
+                    <div id="go-record" class="record-badge">REKOR BARU!</div>
+                    <button id="btn-restart" class="btn">MAIN LAGI</button>
+                </section>
+            </div>
+
+            <aside class="panel">
+                <div class="card">
+                    <div class="card-label">SKOR</div>
+                    <div class="card-value" id="hud-score">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">TERBAIK</div>
+                    <div class="card-value" id="hud-best">0</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">BERIKUTNYA</div>
+                    <canvas id="hud-next" width="96" height="96"></canvas>
+                </div>
+                <div class="card">
+                    <div class="card-label">UNSUR TERTINGGI</div>
+                    <div class="card-value small" id="hud-highest">H · Hidrogen</div>
+                </div>
+                <div class="card two">
+                    <div>
+                        <div class="card-label">LEVEL</div>
+                        <div class="card-value small" id="hud-level">1</div>
+                    </div>
+                    <div>
+                        <div class="card-label">CHAIN</div>
+                        <div class="card-value small" id="hud-chain">0</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-label">DITEMUKAN <span id="hud-disc-text">0/118</span></div>
+                    <div class="bar">
+                        <div class="bar-fill" id="hud-disc-bar"></div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
